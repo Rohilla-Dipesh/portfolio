@@ -330,7 +330,7 @@ b {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .container {
         flex-direction: column;
     }
@@ -345,7 +345,7 @@ b {
         display: none;
     }
 
-    @media (max-width: 600px) { /* Target screens smaller than 768px */
+    @media (max-width: 480px) { /* Target screens smaller than 768px */
         .social-icons {
             position: fixed; /* Fix to the bottom of the viewport */
             bottom: 0;
