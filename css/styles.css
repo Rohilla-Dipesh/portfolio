@@ -330,7 +330,7 @@ b {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
     .container {
         flex-direction: column;
     }
@@ -380,11 +380,6 @@ b {
 @media (max-width: 480px) {
     .gallery-item {
         width: 100%;
-    }
-    .demo-reel {
-        width: 100%;
-        max-width: 100%;
-        min-width: 100%;
     }
 }
 
