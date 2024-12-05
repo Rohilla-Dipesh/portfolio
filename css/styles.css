@@ -329,57 +329,98 @@ b {
     border-radius: 4px;
 }
 
-/* Responsive Design */
-@media (max-width: 767px) {
+/* Base Responsive Styles */
+@media (max-width: 768px) {
+    /* Sidebar Styles */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hide sidebar off-screen */
+        width: 250px;
+        height: 100vh;
+        transition: left 0.3s ease;
+        z-index: 1000;
+        background-color: #f8f9fa; /* Light background */
+    }
+
+    .sidebar.collapsed {
+        left: 0; /* Slide in when collapsed */
+    }
+
+    /* Main Content Adjustment */
     .container {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
         flex-direction: column;
     }
 
-    .sidebar {
-        width: 100%;
-        min-width: 250px;
-        height: auto;
+    .nav-menu li {
+        margin-bottom: 10px;
     }
 
-    .btn-toggle {
-        display: none;
-    }
-
-    @media (max-width: 600px) { /* Target screens smaller than 768px */
-        .social-icons {
-            position: fixed; /* Fix to the bottom of the viewport */
-            bottom: 0;
-            left: 0;
-            width: 100%; /* Span the entire width */
-            text-align: center; /* Center align the icons */
-            background-color: #fff; /* Optional background for contrast */
-            padding: 10px 0; /* Add padding for touch-friendly design */
-            z-index: 1000; /* Ensure it stays on top */
-        }
-    }
-    
-
-    .sidebar.collapsed {
-        width: 100%;
-    }
-
-    .nav-menu {
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .nav-menu a span {
-        display: none;
+    /* Gallery Responsiveness */
+    .gallery {
+        flex-direction: column;
     }
 
     .gallery-item {
-        width: calc(50% - 10px);
+        width: 100%; /* Full width on mobile */
+        margin-bottom: 15px;
+    }
+
+    /* Social Icons */
+    .social-icons {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        padding: 10px 0;
+    }
+
+    /* Demo Reel */
+    .demo-reel video {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
+/* Small Mobile Devices */
 @media (max-width: 480px) {
-    .gallery-item {
-        width: 100%;
+    .sidebar {
+        width: 100%; /* Full width on very small screens */
+        left: -100%;
+    }
+
+    .social-icons {
+        gap: 15px; /* Slightly tighter icon spacing */
+    }
+
+    /* Typography Adjustments */
+    body {
+        font-size: 14px; /* Smaller base font size */
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Touch Device Improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Adjustments for touch devices */
+    .gallery-item:hover img {
+        transform: none; /* Disable hover effects on touch devices */
+    }
+
+    .gallery-overlay {
+        opacity: 0.7; /* Always partially visible on touch devices */
     }
 }
 
