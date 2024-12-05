@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipesh Rohilla - Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3><a href="index.html">Dipesh Rohilla</a></h3>
+                <button id="sidebarCollapse" class="btn-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="resume.html"><i class="fas fa-file-alt"></i> Resume</a></li>
+                <li><a href="portfolio.html"><i class="fas fa-image"></i> Portfolio</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="https://instagram.com/aaam_ras?igshid=hkypfnu49kua" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://m.imdb.com/name/nm13421862/?fbclid=PAAaZqF4wFsratKQ8s6cKmVj-9iFQ7jGgC_mKT_jnO8j63721a_t80mVeEjnI&ref_=ext_shr_lnk" target="_blank"><i class="fab fa-imdb"></i></a>
+            </div>
+        </nav>
+
+        <main id="content" class="content">
+            <section id="contact">
+                <h1>Contact Me</h1>
+                
+                <form id="contact-form" action="https://formspree.io/f/xjkvzyyj" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <!-- Honeypot for spam protection -->
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div class="contact-info">
+                    <h2>Direct Contact</h2>
+                    <p>Email: dipeshr061@gmail.com</p>
+                    <p>Phone: 9971611746</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="site-footer">
+        <p>&copy; 2024 Dipesh Rohilla</p>
+    </footer>
+    
+    <!-- JavaScript for enhanced form submission -->
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(form);
+            const submitButton = form.querySelector('.submit-btn');
+            submitButton.disabled = true; // Disable button to prevent multiple submissions
+            submitButton.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Thank you! Your message has been sent.');
+                    form.reset();
+                } else {
+                    alert('Oops! There was a problem submitting your form.');
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again later.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+            }
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
