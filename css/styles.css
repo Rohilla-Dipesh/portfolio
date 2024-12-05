@@ -333,6 +333,9 @@ b {
 @media (max-width: 480px) {
     .container {
         flex-direction: column;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
     }
 
     .sidebar {
