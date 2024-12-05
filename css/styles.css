@@ -386,6 +386,27 @@ b {
         max-width: 100%;
     }
 }
+/* Ensure navigation items are visible on mobile */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+        padding: 10px 15px;
+    }
+
+    .nav-menu a {
+        display: block;
+        width: 100%;
+    }
+}
 
 /* Small Mobile Devices */
 @media (max-width: 480px) {
