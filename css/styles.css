@@ -330,12 +330,9 @@ b {
 }
 
 /* Responsive Design */
-@media (max-width: 897px) {
+@media (max-width: 480px) {
     .container {
         flex-direction: column;
-        width: 100%;
-        min-width: 100%;
-        max-width: 100%;
     }
 
     .sidebar {
@@ -348,7 +345,7 @@ b {
         display: none;
     }
 
-    @media (max-width: 897px) { /* Target screens smaller than 768px */
+    @media (max-width: 480px) { /* Target screens smaller than 768px */
         .social-icons {
             position: fixed; /* Fix to the bottom of the viewport */
             bottom: 0;
@@ -380,11 +377,10 @@ b {
     }
 }
 
-@media (max-width: 897px) {
+@media (max-width: 480px) {
     .gallery-item {
         width: 100%;
     }
-
     .demo-reel {
         width: 100%;
         max-width: 100%;
