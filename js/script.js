@@ -2,18 +2,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebar = document.getElementById('sidebar');
     const sidebarCollapse = document.getElementById('sidebarCollapse');
     const navMenu = document.querySelectorAll('.nav-menu a');
+    const socialIcons = document.querySelector('.social-icons');
 
     // Sidebar toggle functionality
     if (sidebarCollapse) {
         sidebarCollapse.addEventListener('click', () => {
             sidebar.classList.toggle('collapsed');
+            
+            // Ensure social icons stay fixed and aligned
+            if (sidebar.classList.contains('collapsed')) {
+                socialIcons.style.left = '50px'; // Adjust to match the collapsed sidebar width
+            } else {
+                socialIcons.style.left = '70px'; // Default position when sidebar is expanded
+            }
         });
     }
 
-    // Navigation menu item click handler
+    // Navigation menu item click handler (for smooth scrolling or section switching)
     navMenu.forEach(item => {
         item.addEventListener('click', (e) => {
-            // Optional: Implement smooth scrolling or section switching
             const targetId = item.getAttribute('href');
             
             // If we're on a single-page site with sections
@@ -31,9 +38,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetSection.classList.remove('hidden');
                 }
             }
-            // If we're on multi-page site, the default link behavior will work
+            // If we're on a multi-page site, the default link behavior will work
         });
     });
+
+    // document.addEventListener('scroll', () => {
+    //     const footer = document.querySelector('.site-footer');
+    //     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    //         footer.style.opacity = 1;
+    //     } else {
+    //         footer.style.opacity = 0;
+    //     }
+    // });
 
     // Form validation (for contact page)
     const contactForm = document.getElementById('contact-form');
